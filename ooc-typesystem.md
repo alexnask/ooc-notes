@@ -86,7 +86,7 @@ The list of those criteria is the following, in descending order of importance (
 - Two decimal types have a score of MAX
 - Two floating point types have a score of MAX  
 - A decimal and a floating point type have a score of 3MAX/4
-- Two class types have a score of MAX/2 if one inherits the other // TODO: Maybe decrease the score the furthest down the one type inherits the other
+- Two class types have a score of MAX/(1 + inheritance distance) if one inherits the other
 - Two function types are equal if all their argument types and their return types are equal
 - Two pointer types have a score equal to the score of their inner types
 - An interface type and a base type have a score of MAX if the base type provides an implementation of that interface declaration
