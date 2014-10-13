@@ -101,7 +101,12 @@ The list of those criteria is the following, in descending order of importance (
 Built-in coercion
 -----------------
 
-// E.g. Pointer --> Bool (in logical operators and conidtions), Pointer --> Func (from  global function Pointer to Func), ooc array --> C array
+In some specific cases, built-in coercion can happen.  
+Here is a list of places where this can happen:  
+- Types compatible to "Pointer" can be coerced to "Bool" in condition expressions or logical operators
+- An access to a global function (of type "Pointer") can be coerced to any function type
+- An ooc array can be coerced to a C array (raw pointer)
+- // TODO: add more?
 
 Common roots
 ------------
