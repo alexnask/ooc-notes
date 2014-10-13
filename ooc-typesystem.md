@@ -20,7 +20,7 @@ There are three types of covers: covers from C types, template covers and compou
 Covers from C types wrap around a C type as you would expect and can define extra functions.  
 They are mainly used in C library bindings, to make them ooc-like, as many C libraries are written in an OO fashion.  
 They can be value or reference types depending on the C type they wrap.  
-You can explicitely mark a cover from a C type as byref (in the event, say, that you cover a typedef'ed C pointer type). // Foo: cover from c_foo(byref) {}
+You can explicitely mark a cover from a C type as byref (in the event, say, that you cover a typedef'ed C pointer type). // Foo: cover from c_foo(byref) {}  
 
 Template covers and compound covers are similar.  
 They are pass by value types, so their methods need to be handled careful.  
@@ -76,7 +76,7 @@ It is used to find the most compatible function declaration to match a call, amo
 Given two types and a maximum score possible, we can define a score of those two types following a plethora of criteria.  
 A score of -1 is convention for "something not resolved yet" (which shouldn't happen in oc-revival) while another negative value means the two types are incompatible.  
 
-// TODO: check this, add more cases if needed
+// TODO: check this, add more cases if needed  
 The list of those criteria is the following, in descending order of importance (where a base type is a class, cover or enum type):  
 
 - Two equal types have a score of MAX
