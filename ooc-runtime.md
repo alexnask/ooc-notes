@@ -60,10 +60,10 @@ Static methods defined by the interface are also added into the vtable.
 In detail, the following happen:  
 
 An interface metaclass struct is created.  
-This metaclass struct isa just the same as a class, pointing to the interface's method stubs that basically take an interface value struct and use the metaclass to call a method on the data.  
+This metaclass struct isa just the same as a class, pointing to the interface's method stubs that basically take an interface value struct and use the vtable to call a method on the data.  
 
 An interface vtable struct is created.  
-The first argument (this argumnet) of the interface methods is defined as a void pointer iinside this struct.  
+The first argument (this argument) of the interface methods is defined as a void pointer iinside this struct.  
 An interface value struct is created, which contains a void (or byte, whatever) pointer to some data (the object that implements the interface) and a pointer to an interface vtable.  
 When a type implements an interface, it creates a new (static) instance of the interface vtable, pointing to functions it needs to implement.  
 
