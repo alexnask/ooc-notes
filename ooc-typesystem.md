@@ -62,10 +62,19 @@ References are auto-dereferenced when accessed (and generally used as if they we
 However, a reference must explicitely be defined by taking the address of the value they reference to via the & operator (same as raw pointers)  
 For example, a: Int@ must take a value like 42&, not 42.  
 
+Array types
+-----------
+
+An ooc array uses the Foo[size?] index and can be either stack or heap allocated.  
+In my implementation, array types are just converted to Array&lt;Foo&gt;, which is a template cover type.  
+
 Function types
 --------------
 
-
+In rock, we used to have a pretty complicated system were function types were separate from the Closure (compoud cover) type.  
+For my implementation I have decided that this is not optimal. Instead, the function type syntax stays the same but is effectively wrapping over the Func compoud cover type.  
+A function type has this form: "Func(ArgTypes...) -&gt; RetType".  
+The argument types and return type are used by the compiler to correctly cast the function thunk pointer to a typed function pointer and for general typechecking.  
 
 Scoring system
 --------------
@@ -104,7 +113,7 @@ Built-in coercion
 In some specific cases, built-in coercion can happen.  
 Here is a list of places where this can happen:  
 - Types compatible to "Pointer" can be coerced to "Bool" in condition expressions or logical operators
-- An access to a global function (of type "Pointer") can be coerced to any function type
+- An access to a global function (of type "Pointer") can be coerced to a function type
 - An ooc array can be coerced to a C array (raw pointer)
 - // TODO: add more?
 
